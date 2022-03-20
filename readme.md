@@ -3,10 +3,11 @@
 Zakładam:
 + (zgodnie z instrukcją) uzycie najnowszej wersji terraform i providera (czyli brak wymagania konkretnej wersji)
 + wcześniejsze stworzenie Azure Storage-a i Container-a na potrzeby przetrzymywania State file (razem z regułami dostępu, np. bucket policies) - zakładam, że będzie przechowywany niezależnie od tworzonej przez terraform infrastruktury opisanej w zadaniu -> odpowiednie nazwy powinne zostać wpisane w backend.tf
++ użycie "role_based_access_control_enabled = true" (main/tf - definicja klastra) zamiast popularnie używanego osobnego bloku "role_based_access_control" - od nadchodzacej wersji Terraform 3, blok nie będzie obsługiwany
 + wydzielenie niektórych plików dla wiekszej czytelności:
-    ++ variables.tf -> zawierający zmienne stosowane a kodzie main.tf, które mogą się w przyszłości zmienić - np. inny region, rodzaj środowiska
-    ++ outputs.tf -> typowo wyłącza się je dla czytelności tego co po dokonaniu deploymentu zostanie przekazane przez terraform na wyjściu
-    ++ backend.tf -> do zdefiniowania miejsca przechowywania pliku Terraform State
+    + variables.tf -> zawierający zmienne stosowane a kodzie main.tf, które mogą się w przyszłości zmienić - np. inny region, rodzaj środowiska
+    + outputs.tf -> typowo wyłącza się je dla czytelności tego co po dokonaniu deploymentu zostanie przekazane przez terraform na wyjściu
+    + backend.tf -> do zdefiniowania miejsca przechowywania pliku Terraform State
 
 Inne dobre praktyki:
 + użycie gotowych sprawdzonych i popularnych modułów społeczności -> nie korzystam, żeby zademonstrować umiejętność używania bazowych reasource-ów
